@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prima Bintang — Mercedes-Benz Bekas Berkualitas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0f11; --bg-panel:#16181b; --line:rgba(255,255,255,.10);
+    --ink:#f2f0ea; --ink-dim:#a9a8a3;
+    --accent:#c9a54a; /* champagne gold, klasik untuk mobil mewah */
+    --accent-dim:#8a7538;
+    padding-top: env(safe-area-inset-top,0px);
+    padding-bottom: env(safe-area-inset-bottom,0px);
+    box-sizing:border-box;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f5f3ee; --bg-panel:#ffffff; --line:rgba(20,20,20,.10);
+      --ink:#17181a; --ink-dim:#5c5b57;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0e0f11; --bg-panel:#16181b; --line:rgba(255,255,255,.10);
+    --ink:#f2f0ea; --ink-dim:#a9a8a3;
+  }
+  *{box-sizing:border-box}
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Manrope',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces',Georgia,serif; margin:0; font-weight:600; letter-spacing:-.01em}
+  a{color:inherit}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 24px}
+
+  header{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:10;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px); border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:18px 24px}
+  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-size:19px}
+  .brand svg{width:26px; height:26px}
+  .navlinks{display:flex; gap:28px; font-size:14px; color:var(--ink-dim)}
+  .navlinks a{text-decoration:none}
+  .navlinks a:hover{color:var(--ink)}
+  .cta{
+    background:var(--accent); color:#141414; padding:9px 18px; border-radius:3px;
+    text-decoration:none; font-weight:700; font-size:14px; white-space:nowrap;
+  }
+
+  .hero{padding:88px 0 64px; border-bottom:1px solid var(--line)}
+  .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center}
+  @media (max-width:820px){.hero-grid{grid-template-columns:1fr}}
+  .hero h1{font-size:clamp(34px,5vw,54px); line-height:1.06}
+  .hero p{color:var(--ink-dim); font-size:17px; line-height:1.65; margin:20px 0 28px; max-width:46ch}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap}
+  .btn-outline{
+    border:1px solid var(--line); padding:12px 22px; border-radius:3px;
+    text-decoration:none; font-size:14px; font-weight:600;
+  }
+  .btn-solid{
+    background:var(--accent); color:#141414; padding:12px 22px; border-radius:3px;
+    text-decoration:none; font-size:14px; font-weight:700;
+  }
+  .hero-art{width:100%; height:auto}
+
+  .strip{
+    display:flex; justify-content:space-between; padding:26px 0; border-bottom:1px solid var(--line);
+    flex-wrap:wrap; gap:18px 40px;
+  }
+  .strip div{font-size:13px; color:var(--ink-dim)}
+  .strip strong{display:block; font-family:'Fraunces',serif; font-size:22px; color:var(--ink); font-weight:600}
+
+  section{padding:72px 0}
+  .sec-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; gap:20px; flex-wrap:wrap}
+  .sec-head h2{font-size:clamp(26px,3.5vw,36px)}
+  .sec-head p{color:var(--ink-dim); font-size:14.5px; max-width:40ch; margin:8px 0 0}
+
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:620px){.grid{grid-template-columns:1fr}}
+
+  .card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+    display:flex; flex-direction:column;
+  }
+  .card-art{
+    aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+    border-bottom:1px solid var(--line);
+  }
+  .card-art svg{width:78%; height:auto}
+  .card-body{padding:20px 22px 22px}
+  .card-tag{font-size:12px; color:var(--accent); font-weight:700; margin-bottom:6px}
+  .card-body h3{font-size:19px; font-weight:600}
+  .card-specs{display:flex; gap:14px; margin:12px 0 16px; font-size:12.5px; color:var(--ink-dim)}
+  .card-price{display:flex; align-items:center; justify-content:space-between; padding-top:14px; border-top:1px solid var(--line)}
+  .card-price strong{font-family:'Fraunces',serif; font-size:20px; font-weight:600}
+  .card-price a{font-size:13px; font-weight:700; color:var(--accent); text-decoration:none}
+
+  .why{display:grid; grid-template-columns:repeat(3,1fr); gap:32px}
+  @media (max-width:780px){.why{grid-template-columns:1fr}}
+  .why-item{border-top:1px solid var(--line); padding-top:18px}
+  .why-item h3{font-size:17px; margin-bottom:8px; font-weight:600}
+  .why-item p{color:var(--ink-dim); font-size:14.5px; line-height:1.6; margin:0}
+
+  .contact-band{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:8px;
+    padding:48px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;
+  }
+  .contact-band h2{font-size:26px; max-width:20ch}
+  .contact-band p{color:var(--ink-dim); font-size:14.5px; margin:10px 0 0; max-width:38ch}
+
+  footer{border-top:1px solid var(--line); padding:32px 0 48px}
+  .foot-row{display:flex; justify-content:space-between; color:var(--ink-dim); font-size:13px; flex-wrap:wrap; gap:10px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav wrap">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/><path d="M20 5V20L31 26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Prima Bintang
+    </div>
+    <div class="navlinks">
+      <a href="#unit">Unit Tersedia</a>
+      <a href="#kenapa">Kenapa Kami</a>
+      <a href="#kontak">Kontak</a>
+    </div>
+    <a class="cta" href="#kontak">Hubungi Kami</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <h1>Mercedes-Benz pilihan, riwayat terjaga.</h1>
+        <p>Kami jual beli mobil Mercedes-Benz bekas dengan inspeksi menyeluruh dan dokumen lengkap. Setiap unit diperiksa lebih dari 120 titik sebelum sampai ke tangan Anda.</p>
+        <div class="hero-cta">
+          <a class="btn-solid" href="#unit">Lihat Unit</a>
+          <a class="btn-outline" href="#kontak">Jual Mobil Anda</a>
+        </div>
+      </div>
+      <svg class="hero-art" viewBox="0 0 460 260" fill="none">
+        <rect x="10" y="150" width="440" height="4" fill="var(--line)"/>
+        <path d="M60 160 C60 120 100 90 150 90 L300 90 C340 90 365 110 385 140 L420 150 C430 152 434 158 434 166 L434 178 C434 184 429 189 423 189 L60 189 C54 189 49 184 49 178 L49 172 C49 165 54 160 60 160 Z" fill="var(--bg-panel)" stroke="var(--accent)" stroke-width="2"/>
+        <path d="M150 90 L170 130 L300 130 L320 90" stroke="var(--accent)" stroke-width="2" fill="none"/>
+        <circle cx="130" cy="189" r="26" fill="var(--bg)" stroke="var(--ink-dim)" stroke-width="3"/>
+        <circle cx="130" cy="189" r="9" fill="var(--accent)"/>
+        <circle cx="365" cy="189" r="26" fill="var(--bg)" stroke="var(--ink-dim)" stroke-width="3"/>
+        <circle cx="365" cy="189" r="9" fill="var(--accent)"/>
+        <circle cx="234" cy="42" r="20" stroke="var(--accent)" stroke-width="2" fill="none"/>
+        <path d="M234 26V42L245 50" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div><strong>250+</strong>Unit terjual sejak 2016</div>
+    <div><strong>120 titik</strong>Inspeksi tiap unit</div>
+    <div><strong>1 tahun</strong>Garansi mesin & transmisi</div>
+    <div><strong>4.9/5</strong>Rating pelanggan</div>
+  </div>
+
+  <section id="unit">
+    <div class="sec-head">
+      <div>
+        <h2>Unit tersedia minggu ini</h2>
+        <p>Semua unit sudah melalui inspeksi dan siap balik nama.</p>
+      </div>
+    </div>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 200 110" fill="none">
+            <path d="M20 75 C20 55 40 40 65 40 L130 40 C155 40 172 52 184 68 L20 75 Z" stroke="var(--accent)" stroke-width="2" fill="none"/>
+            <path d="M65 40 L78 62 L130 62 L142 40" stroke="var(--accent)" stroke-width="2" fill="none"/>
+            <circle cx="58" cy="80" r="13" stroke="var(--ink-dim)" stroke-width="2.5" fill="var(--bg)"/>
+            <circle cx="150" cy="80" r="13" stroke="var(--ink-dim)" stroke-width="2.5" fill="var(--bg)"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tag">SEDAN</div>
+          <h3>C 300 AMG Line</h3>
+          <div class="card-specs"><span>2021</span><span>32.000 km</span><span>A/T</span></div>
+          <div class="card-price"><strong>Rp 895 jt</strong><a href="#kontak">Tanya →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 200 110" fill="none">
+            <path d="M18 80 C18 50 42 30 75 30 L120 30 C150 30 168 45 182 66 L184 80 L18 80 Z" stroke="var(--accent)" stroke-width="2" fill="none"/>
+            <path d="M75 30 L85 58 L145 58 L148 30" stroke="var(--accent)" stroke-width="2" fill="none"/>
+            <circle cx="55" cy="83" r="13" stroke="var(--ink-dim)" stroke-width="2.5" fill="var(--bg)"/>
+            <circle cx="150" cy="83" r="13" stroke="var(--ink-dim)" stroke-width="2.5" fill="var(--bg)"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tag">SUV</div>
+          <h3>GLC 200</h3>
+          <div class="card-specs"><span>2022</span><span>18.500 km</span><span>A/T</span></div>
+          <div class="card-price"><strong>Rp 1,15 M</strong><a href="#kontak">Tanya →</a></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-art">
+          <svg viewBox="0 0 200 110" fill="none">
+            <path d="M22 78 C22 58 38 44 60 44 L128 44 C150 44 166 55 180 70 L22 78 Z" stroke="var(--accent)" stroke-width="2" fill="none"/>
+            <path d="M60 44 L72 64 L128 64 L138 44" stroke="var(--accent)" stroke-width="2" fill="none"/>
+            <circle cx="56" cy="81" r="13" stroke="var(--ink-dim)" stroke-width="2.5" fill="var(--bg)"/>
+            <circle cx="146" cy="81" r="13" stroke="var(--ink-dim)" stroke-width="2.5" fill="var(--bg)"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-tag">SEDAN LONG</div>
+          <h3>E 300 Avantgarde</h3>
+          <div class="card-specs"><span>2020</span><span>41.000 km</span><span>A/T</span></div>
+          <div class="card-price"><strong>Rp 1,05 M</strong><a href="#kontak">Tanya →</a></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="kenapa">
+    <div class="sec-head"><div><h2>Kenapa beli di Prima Bintang</h2></div></div>
+    <div class="why">
+      <div class="why-item">
+        <h3>Riwayat servis lengkap</h3>
+        <p>Setiap unit disertai buku servis resmi dan laporan inspeksi tertulis, bukan sekadar janji lisan.</p>
+      </div>
+      <div class="why-item">
+        <h3>Harga transparan</h3>
+        <p>Satu harga untuk semua pembeli. Tidak ada biaya tersembunyi saat proses balik nama.</p>
+      </div>
+      <div class="why-item">
+        <h3>Garansi 1 tahun</h3>
+        <p>Mesin dan transmisi ditanggung 12 bulan pertama setelah unit berpindah tangan.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <div class="contact-band">
+      <div>
+        <h2>Ingin jual atau beli Mercedes-Benz?</h2>
+        <p>Tim kami siap bantu appraisal unit lama Anda atau carikan unit sesuai budget.</p>
+      </div>
+      <a class="btn-solid" href="https://wa.me/6280000000000" target="_blank" rel="noopener">Chat via WhatsApp</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Prima Bintang Motor</span>
+    <span>Jakarta Selatan · Buka Senin–Sabtu, 09.00–18.00</span>
+  </div>
+</footer>
+
+</body>
+</html>
